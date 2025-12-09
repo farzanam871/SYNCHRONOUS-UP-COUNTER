@@ -31,16 +31,40 @@ However, the remaining flip-flops should be made ready to toggle only when all l
 /* write all the steps invloved */
 
 **PROGRAM**
+module Syn_Co (
+    input  wire clk,       // clock input
+    input  wire rst,       // synchronous reset
+    output reg  [2:0] q   // 3-bit counter output
+);
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. 
+initial begin
+     q <= 3'b000;
+	 end
 
-Developed by: RegisterNumber:
-*/
+always @(posedge clk) 
+begin
+q <= 3'b000;
+    if (rst) 
+        q <= 3'b000;       // reset counter to 0
+    else
+        q <= q + 1;        // increment counter
+end
+
+endmodule
+
+Developed by:Farzana Mubarak RegisterNumber:25013772
+
 
 **RTL LOGIC UP COUNTER**
+<img width="1718" height="907" alt="Screenshot 2025-12-09 201849" src="https://github.com/user-attachments/assets/99277068-81e1-47fe-9f44-040a78b1d9ec" />
 
 **TIMING DIAGRAM FOR IP COUNTER**
+<img width="1712" height="296" alt="Screenshot 2025-12-09 201912" src="https://github.com/user-attachments/assets/e3606888-9010-443c-bedf-cce95eb20420" />
+
 
 **TRUTH TABLE**
+<img width="747" height="273" alt="image" src="https://github.com/user-attachments/assets/5466ab5d-2051-4601-8caf-189d7d169755" />
+
 
 **RESULTS**
+Hence 4 bit synchronous up counter is implemented correctly
